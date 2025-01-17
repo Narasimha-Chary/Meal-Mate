@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'delivery/css/style.css' %}">
+</head>
+<body>
+    <div id="outer">
+        <h3>Username already exists! Try again..</h3>
+        <form method="post" action="{% url 'handle_signup' %}">
+            {% csrf_token %}
+            <label for="username">USERNAME: </label>
+            <input type="text" name="username" id="username">
+            <br><br>
+            <label for="password">PASSWORD: </label>
+            <input type="password" name="password" id="password">
+            <br><br>
+            <label for="email">EMAIL: </label>
+            <input type="email" name="email" id="email">
+            <br><br>
+            <label for="mobile">MOBILE: </label>
+            <input type="number" name="mobile" id="mobile">
+            <br><br>
+            <label for="address">ADDRESS: </label>
+            <textarea type="text" name="address" id="address"></textarea>
+            <br><br>
+            <div id="button">
+            <button type="submit">SIGN UP</button>
+            </div>
+        </form>
+    </div>
+</body>
+</html>

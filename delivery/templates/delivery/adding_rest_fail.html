@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h3>Restaurant already exists! Try again..</h3>
+    <h2>Add Restaurant: </h2>
+    <form method="POST" action="{% url 'add_restaurant/' %}">
+        {% csrf_token %}
+        <label for="name">Restaurant Name: </label>
+        <input type="text" name="name" id="name" required><br><br>
+        <label for="picture">Picture URL: </label>
+        <input type="url" name="picture" id="picture" required><br><br>
+        <label for="cuisine">Cuisine: </label>
+        <input type="text" name="cuisine" id="cuisine" required><br><br>
+        <label for="rating">Rating: </label>
+        <input type="number" name="rating" id="rating" required step="0.1" min="0" max="5"><br><br>
+       <button type="submit">Add Restaurant</button>
+    </form>
+</body>
+</html>

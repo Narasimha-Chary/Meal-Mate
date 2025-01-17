@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'delivery/css/style.css' %}">
+</head>
+<body>
+    <div id="outer">
+        <h2>Sign In Failed! Try Again </h2>
+        <form method="post" action="{% url 'handle_login' %}">
+            {% csrf_token %}
+            <label for="username">USERNAME: </label>
+            <input type="text" name="username" id="username">
+            <br><br>
+            <label for="password">PASSWORD: </label>
+            <input type="password" name="password" id="password">
+            <br><br>
+            <button type="submit">LOG IN</button>
+        </form>
+    </div>
+</body>
+</html>
