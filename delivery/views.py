@@ -1,6 +1,6 @@
-from django.shortcuts import render
+from django.shortcuts import get_object_or_404, redirect, render
 from django.http import HttpResponse
-from delivery.models import Customer, Restaurant
+from delivery.models import Customer, Restaurant, MenuItem
 
 # Create your views here.
 def index(request):
@@ -84,8 +84,80 @@ def add_restaurant(request):
 
         restaurants = Restaurant.objects.all()
 
-        return render(request, "delivery/show_restaurant.html", {'restaurants': restaurants})
+        return render(request, "delivery/show_restaurants.html", {'restaurants': restaurants})
         
         # return render(request, "delivery/signin.html")
     else:
         return HttpResponse("Invalid request")
+    
+
+def show_restaurant_page(request):
+    restaurants = Restaurant.objects.all()
+    return render(request,'delivery/show_restaurants.html', {"restaurants":restaurants})
+
+def restaurant_menu(request, restaurant_id):
+    restaurant = get_object_or_404(Restaurant, id=restaurant_id)
+
+    if request.method == 'POST':
+        # Handle adding new menu item
+        name = request.POST.get('name')
+        description = request.POST.get('description')
+        price = request.POST.get('price')
+        is_veg = request.POST.get('is_veg') == 'on'
+        picture = request.POST.get('picture')
+
+        MenuItem.objects.create(
+            restaurant=restaurant,
+            name=name,
+            description=description,
+            price=price,
+            is_veg=is_veg,
+            picture=picture
+        )
+
+        return redirect('restaurant_menu', restaurant_id=restaurant.id)
+
+    # Fetch all menu items for this restaurant
+    menu_items = restaurant.menu_items.all()
+
+    return render(request, 'delivery/menu.html', {
+        'restaurant': restaurant,
+        'menu_items': menu_items,
+    })
+
+
+    
+# def show_restaurant_page(request):
+#         restaurants = Restaurant.objects.all()
+#         return render(request, "delivery/show_restaurant.html", {'restaurants': restaurants})
+        
+
+# def restaurant_menu(request, restaurant_id):
+#     restaurant = get_object_or_404(Restaurant, id=restaurant_id)
+
+#     if request.method == 'POST':
+#         # Handle adding new menu item
+#         name = request.POST.get('name')
+#         description = request.POST.get('description')
+#         price = request.POST.get('price')
+#         is_veg = request.POST.get('is_veg') == 'on'
+#         image = request.POST.get('image')
+
+#         MenuItem.objects.create(
+#             restaurant=restaurant,
+#             name=name,
+#             description=description,
+#             price=price,
+#             is_veg=is_veg,
+#             image=image
+#         )
+
+#         return redirect('restaurant_menu', restaurant_id=restaurant.id)
+
+#     # Fetch all menu items for this restaurant
+#     menu_items = restaurant.menu_items.all()
+
+#     return render(request, 'delivery/menu.html', {
+#         'restaurant': restaurant,
+#         'menu_items': menu_items,
+#     })
