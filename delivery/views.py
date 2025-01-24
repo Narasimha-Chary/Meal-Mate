@@ -1,6 +1,6 @@
 from django.shortcuts import get_object_or_404, redirect, render
 from django.http import HttpResponse
-from delivery.models import Customer, Restaurant, MenuItem
+from delivery.models import Customer, Restaurant, MenuItem, Cart
 
 # Create your views here.
 def index(request):
@@ -13,20 +13,22 @@ def signup(request):
     return render(request, "delivery/signup.html")
 
 def handle_login(request):
-    # #DB's data
-    # user = "sindhu"
-    # paw = "123"
+
     if request.method == 'POST':
         #client's data
         username = request.POST.get('username')
         password = request.POST.get('password')
 
         try:
-            cust = Customer.objects.get(username=username, password=password)
-            return render(request, "delivery/login_success.html")
+            Customer.objects.get(username=username, password=password)
+            if username == 'admin':
+                return render(request, "delivery/login_success.html", {"username": username})
+            else:
+                restaurants = Restaurant.objects.all()
+                context = {"restaurants": restaurants, "username": username}
+                return render(request, "delivery/customer_home.html", context)            
         except:
             return render(request, "delivery/login_fail.html")
-        # return HttpResponse(f"Username: {username}   Password: {password}")
     else:
         return HttpResponse("Invalid request")
     
@@ -124,40 +126,124 @@ def restaurant_menu(request, restaurant_id):
         'restaurant': restaurant,
         'menu_items': menu_items,
     })
-
-
     
-# def show_restaurant_page(request):
-#         restaurants = Restaurant.objects.all()
-#         return render(request, "delivery/show_restaurant.html", {'restaurants': restaurants})
+
+# Update Restaurant Page
+def update_restaurant_page(request, restaurant_id):
+    restaurant = get_object_or_404(Restaurant, id=restaurant_id)
+    return render(request, 'delivery/update_restaurant_page.html', {"restaurant": restaurant})
+
+# Update Restaurant
+def update_restaurant(request, restaurant_id):
+    restaurant = get_object_or_404(Restaurant, id=restaurant_id)
+
+    if request.method == 'POST':
+        restaurant.name = request.POST.get('name')
+        restaurant.picture = request.POST.get('picture')
+        restaurant.cuisine = request.POST.get('cuisine')
+        restaurant.rating = request.POST.get('rating')
+        restaurant.save()
+
+        restaurants = Restaurant.objects.all()
+        return render(request, 'delivery/show_restaurants.html', {"restaurants": restaurants})
+    
+def delete_restaurant(request, restaurant_id):
+    rest = get_object_or_404(Restaurant, id=restaurant_id)
+    rest.delete()
+    restaurants = Restaurant.objects.all()
+    return render(request, "delivery/show_restaurants.html", {'restaurants': restaurants})
+
+# Update Menu Item Page
+def update_menuItem_page(request, menuItem_id):
+    menuItem = get_object_or_404(MenuItem, id=menuItem_id)
+    return render(request, 'delivery/update_menuItem_page.html', {"menuItem": menuItem})
+
+# Update Menu item
+def update_menuItem(request, menuItem_id):
+    menuItem = get_object_or_404(MenuItem, id=menuItem_id)
+
+    if request.method == 'POST':
+        menuItem.name = request.POST.get('name')
+        menuItem.description = request.POST.get('description')
+        menuItem.price = request.POST.get('price')
+        menuItem.is_veg = request.POST.get('is_veg') == 'on'
+        menuItem.picture = request.POST.get('picture')
+        menuItem.save()
         
+        # menu_items = MenuItem.objects.all()
+        # return render(request, 'delivery/menu.html', {"menu_items": menu_items})
+        restaurants = Restaurant.objects.all()
+        return render(request, 'delivery/show_restaurants.html', {"restaurants": restaurants})
+    
+    
+# Delete Menu Item
+def delete_menuItem(request, menuItem_id):
+    menuItem = get_object_or_404(MenuItem, id=menuItem_id)
+    menuItem.delete()
+    # menu_items = MenuItem.objects.all()
+    # return render(request, "delivery/menu.html", {'menu_items': menu_items})
+    restaurants = Restaurant.objects.all()
+    return render(request, 'delivery/show_restaurants.html', {"restaurants": restaurants})
 
-# def restaurant_menu(request, restaurant_id):
-#     restaurant = get_object_or_404(Restaurant, id=restaurant_id)
+#Restaurant menu for Customer 
+def customer_menu(request, restaurant_id, username):
+    restaurant = get_object_or_404(Restaurant, id=restaurant_id)
+    menu_items = restaurant.menu_items.all()
 
-#     if request.method == 'POST':
-#         # Handle adding new menu item
-#         name = request.POST.get('name')
-#         description = request.POST.get('description')
-#         price = request.POST.get('price')
-#         is_veg = request.POST.get('is_veg') == 'on'
-#         image = request.POST.get('image')
+    return render(request, 'delivery/customer_menu.html', {
+        'restaurant': restaurant,
+        'menu_items': menu_items,
+        'username' : username
+    })
 
-#         MenuItem.objects.create(
-#             restaurant=restaurant,
-#             name=name,
-#             description=description,
-#             price=price,
-#             is_veg=is_veg,
-#             image=image
-#         )
+# view cart page
+def show_cart_page(request, username):
+    #fetch items in cart
+    return render(request, "delivery/cart.html", {'username':username})
 
-#         return redirect('restaurant_menu', restaurant_id=restaurant.id)
+# # #add to cart
+# def add_to_cart(request, username, item_id):
+#     #check user and item
+#     customer = get_object_or_404(Customer, username=username)
+#     item = get_object_or_404(MenuItem, id=item_id)
+#     #Get or create a cart for the customer
+#     cart, created = Cart.objects.get_or_create(customer=customer)
+#     #Add item to the cart 
+#     cart.items.add(item)
+#     #Add a success message
+#     messages.success(request, f"{item.name} added to your cart!")
+#     return redirect('customer_menu', restaurant_id=item.restaurant.id, username=username)
 
-#     # Fetch all menu items for this restaurant
-#     menu_items = restaurant.menu_items.all()
+# Add items to cart
+def add_to_cart(request, item_id, username):
+    # Check user and item
+    customer = get_object_or_404(Customer, username=username)
+    item = get_object_or_404(MenuItem, id=item_id)
 
-#     return render(request, 'delivery/menu.html', {
-#         'restaurant': restaurant,
-#         'menu_items': menu_items,
-#     })
+    # Get or create a cart for the customer
+    cart, created = Cart.objects.get_or_create(customer=customer)
+
+    # Add the item to the cart
+    cart.items.add(item)
+
+    # Add a success message
+    # messages.success(request, f"{item.name} added to your cart!")
+
+    # Stay on the same menu page
+    return redirect('customer_menu', restaurant_id=item.restaurant.id, username=username)
+
+#Show Cart
+def show_cart_page(request, username):
+    #Fetch the customers cart
+    customer = get_object_or_404(Customer, username=username)
+    cart = Cart.objects.filter(customer=customer).first()
+
+    #Fetch cart items and total price
+    items = cart.items.all() if cart else []
+    total_price = cart.total_price if cart else 0
+
+    return render(request, 'delivery/cart.html', {
+        'items' : items,
+        'total_price' : total_price,
+        'username' : username,
+    })

@@ -4,9 +4,14 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'delivery/css/styles.css' %}">
 </head>
 <body>
-    <h1>LOGIN SUCCESS</h1>
+    <nav>
+        <p>Welcome {{ username }}</p>
+    </nav>
+    <h1>ADMIN HOME PAGE</h1>
     <a href="show_restaurant_page/">Show All Restaurants</a> <br><br>
     <a href="restaurant_page/">Add new Restaurant</a>
 </body>

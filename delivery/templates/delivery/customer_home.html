@@ -3,13 +3,21 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
     {% load static %}
     <link rel="stylesheet" href="{% static 'delivery/css/styles.css' %}">
+    <title>Document</title>
 </head>
 <body>
+    <nav>
+        <p><a href=""><img src="C:\Users\USER\Pictures\Screenshots\Screenshot 2025-01-23 152435.png" alt="Logo"></a></p>
+        <p>Welcome {{ username }}!</p>
+        <p><a href="">Home</a></p>
+        <p><a href="{% url 'show_cart_page' username %}">view cart</a></p>
+        <p><a href="">Log out</a></p>
+        <!-- <p>{{ username|default:"No username found" }}</p> -->
+    </nav>
+    <h1>Customer Home Page</h1>
     <h2>My Restaurants</h2>
-    <a href="restaurant_page/">Add new Restaurant</a>
     <table border="1">
         <thead>
             <tr>
@@ -29,17 +37,7 @@
                 <td>{{ restaurant.name }}</td>
                 <td>{{ restaurant.cuisine }}</td>
                 <td>{{ restaurant.rating }}/5</td>
-                <td><a href="{% url 'restaurant_menu' restaurant.id %}">View Menu</a>
-                <hr>
-                <a href="{% url 'update_restaurant_page' restaurant.id %}">Update Info</a>
-
-                <form method="POST" action="{% url 'delete_restaurant' restaurant.id %}" >
-                    {% csrf_token %}
-                    <button type="submit" onclick="return confirm('Are you sure want to delete this restaurant')">Delete</button>
-                </form>
-
-                </td>
-
+                <td><a href="{% url 'customer_menu' restaurant.id  username %}">View Menu</a></td>
             </tr>
             {% endfor %}
         </tbody>

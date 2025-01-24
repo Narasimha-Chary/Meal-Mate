@@ -3,14 +3,14 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
     {% load static %}
-    <link rel="stylesheet" href="{% static 'delivery/css/style.css' %}">
+    <link rel="stylesheet" href="{% static 'delivery/css/styles.css' %}">
+    <title>Document</title>
 </head>
 <body>
-    <div id="outer">
+    <div>
         {% csrf_token %}
-        <h2>Meal - Mate : Food Delivery Wizards</h2>
+        <h2>Meal - Mate : Food Delivery Wizards</h2><br>
         <div id="inner1">
             <a href="signin/">SIGN IN</a>
             <a href="signup/">SIGN UP</a>
