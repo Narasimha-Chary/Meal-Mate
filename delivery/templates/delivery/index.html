@@ -1,10 +1,59 @@
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     {% load static %}
-    <link rel="stylesheet" href="{% static 'delivery/css/styles.css' %}">
+    <link rel="stylesheet" href="{% static 'delivery/css/index.css' %}">
+    <title>Meal - Mate: Food Delivery Wizards</title>
+</head>
+<body>
+    <!-- Main container -->
+    <div id="main-container" class="container">
+        {% csrf_token %}
+
+        <!-- Header section -->
+        <header>
+            <h2>Meal - Mate: Food Delivery Wizards</h2>
+            <p>Your one-stop solution for all food cravings! Fast, reliable, and delicious.</p>
+        </header>
+
+        <!-- Action buttons (Sign In & Sign Up) -->
+        <div id="auth-buttons" class="auth-buttons">
+            <a href="signin/" class="btn-primary">SIGN IN</a>
+            <a href="signup/" class="btn-secondary">SIGN UP</a>
+        </div>
+
+        <!-- About section -->
+        <section id="about" class="about-section">
+            <p>Meal-Mate is your go-to food delivery app, offering a wide range of cuisines, all delivered at your doorstep quickly and conveniently.</p>
+            <p>Enjoy the best meals with just a few clicks!</p>
+        </section>
+
+        <!-- Footer (if any) -->
+        <footer>
+            <p>&copy; 2025 Meal-Mate. All rights reserved.</p>
+        </footer>
+    </div>
+</body>
+</html>
+
+
+
+<!--
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    {% load static %}
+    {% comment %} <link rel="stylesheet" href="{% static 'delivery/css/styles.css' %}"> {% endcomment %}
+    <link rel="stylesheet" href="{% static 'delivery/css/index.css' %}">
+
     <title>Document</title>
 </head>
 <body>
@@ -20,4 +69,6 @@
         </div>
     </div>
 </body>
-</html>
+</html> 
+
+-->

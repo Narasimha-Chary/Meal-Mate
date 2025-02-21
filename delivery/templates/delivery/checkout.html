@@ -3,12 +3,28 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    {% load static %}
+    {% comment %} <link rel="stylesheet" href="{% static 'delivery/css/styles.css' %}"> {% endcomment %}
+    <link rel="stylesheet" href="{% static 'delivery/css/checkout.css' %}">
+
     <title>Checkout</title>
     <script src="https://checkout.razorpay.com/v1/checkout.js"></script>
 </head>
 <body>
+    <nav>
+        {% comment %} <p><a href="">Logo</a></p> {% endcomment %}
+        <p><a href="{% url 'customer_home' username %}">Logo</a></p>
+
+        <p>Welcome {{ username }}!</p>
+
+        {% comment %} <p><a href="">Home</a></p> {% endcomment %}
+        <p><a href="{% url 'customer_home' username %}">Home</a></p>
+
+        <p><a href="{% url 'show_cart_page' username %}">view cart</a></p>
+        <p><a href="/">Log out</a></p>
+        <!-- <p>{{ username|default:"No username found" }}</p> -->
+    </nav>
     <h1>Checkout</h1>
-    <h2>Welcome, {{ username }}</h2>
 
     {% if error %}
     <p style="color: red;">{{ error }}</p>

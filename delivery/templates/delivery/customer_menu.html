@@ -5,16 +5,22 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     {% load static %}
-    <link rel="stylesheet" href="{% static 'delivery/css/styles.css' %}">
+    {% comment %} <link rel="stylesheet" href="{% static 'delivery/css/styles.css' %}"> {% endcomment %}
+    <link rel="stylesheet" href="{% static 'delivery/css/customer_menu.css' %}">
+
 </head>
 <body>
     <nav>
-        <p><a href=""><img src="C:\Users\USER\Pictures\Screenshots\Screenshot 2025-01-23 152435.png" alt="Logo"></a></p>
+        {% comment %} <p><a href="">Logo</a></p> {% endcomment %}
+        <p><a href="{% url 'customer_home' username %}">Logo</a></p>
+
         <p>Welcome {{ username }}!</p>
 
-        <p><a href="">Home</a></p>
+        {% comment %} <p><a href="">Home</a></p> {% endcomment %}
+        <p><a href="{% url 'customer_home' username %}">Home</a></p>
+
         <p><a href="{% url 'show_cart_page' username %}">view cart</a></p>
-        <p><a href="">Log out</a></p>
+        <p><a href="/">Log out</a></p>
         <!-- <p>{{ username|default:"No username found" }}</p> -->
     </nav>
     <h1>Menu for {{ restaurant.name }}</h1>

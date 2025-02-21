@@ -16,7 +16,7 @@ from . import views
 
 
 urlpatterns = [
-    path('', views.index),
+    path('', views.index, name='index'),
     path('signin/', views.signin),
     path('signup/', views.signup),
     path('handle_login/', views.handle_login, name='handle_login'),
@@ -51,5 +51,12 @@ urlpatterns = [
     path('checkout/<str:username>/', views.checkout, name='checkout'),
 
     path('orders/<str:username>/', views.orders, name='orders'),
+
+
+
+    path('customer_home/<str:username>/', views.customer_home, name='customer_home'),
+
+
+    path('logout/', views.logout_view, name='logout_view'),
 ]
 

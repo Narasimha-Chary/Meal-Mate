@@ -1,0 +1,149 @@
+/* Base Styling */
+body {
+    font-family: 'Helvetica Neue', sans-serif;
+    margin: 0;
+    padding: 0;
+    background: radial-gradient(circle, #fceabb, #f8b500); /* Warm gradient */
+    color: #333;
+    text-align: center;
+    padding: 20px;
+}
+
+/* Heading */
+h1, h2 {
+    font-size: 2rem;
+    color: #d32f2f; /* Red for emphasis */
+}
+
+h3 {
+    font-size: 1.5rem;
+    color: #ff9800;
+}
+
+/* Table Styling */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 1rem;
+    margin-bottom: 2rem;
+}
+
+th, td {
+    padding: 10px;
+    text-align: left;
+    border: 1px solid #ddd;
+}
+
+th {
+    background-color: #ff9800;
+    color: white;
+    font-weight: bold;
+}
+
+td {
+    background-color: #fff;
+}
+
+img {
+    width: 100px;
+    border-radius: 8px;
+}
+
+/* Button Styling */
+button {
+    background-color: #f57c00; /* Orange background */
+    color: white;
+    border: none;
+    padding: 12px 20px;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+button:hover {
+    background-color: #ff9800;
+    transform: scale(1.05);
+}
+
+button:active {
+    background-color: #d32f2f;
+}
+
+/* Form Styling */
+form {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    margin-top: 2rem;
+    width: 50%;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+input, textarea {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 12px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+}
+
+input[type="number"], input[type="url"] {
+    width: 50%;
+}
+
+input[type="checkbox"] {
+    width: auto;
+}
+
+textarea {
+    height: 100px;
+}
+
+label {
+    font-weight: bold;
+    color: #333;
+}
+
+/* Link Styling */
+a {
+    font-size: 1rem;
+    color: #ff9800;
+    text-decoration: none;
+    padding: 10px 15px;
+    border-radius: 8px;
+    background-color: white;
+    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
+}
+
+a:hover {
+    background-color: #ff9800;
+    color: white;
+    transform: scale(1.05);
+}
+
+a:active {
+    background-color: #f57c00;
+    color: white;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    h1, h2 {
+        font-size: 1.5rem;
+    }
+
+    h3 {
+        font-size: 1.2rem;
+    }
+
+    table {
+        font-size: 0.9rem;
+    }
+
+    form {
+        width: 80%;
+    }
+}

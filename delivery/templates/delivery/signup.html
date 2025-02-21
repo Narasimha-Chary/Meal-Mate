@@ -1,3 +1,46 @@
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign Up - Meal Mate</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'delivery/css/signup.css' %}">
+</head>
+<body>
+
+    <div>
+        <h2 class="title">Create Your Account</h2> <!-- Heading added -->
+
+        <form method="post" action="{% url 'handle_signup' %}">
+            {% csrf_token %}
+            <label for="username">USERNAME: </label>
+            <input type="text" name="username" id="username" required>
+
+            <label for="password">PASSWORD: </label>
+            <input type="password" name="password" id="password" required>
+
+            <label for="email">EMAIL: </label>
+            <input type="email" name="email" id="email" required>
+
+            <label for="mobile">MOBILE: </label>
+            <input type="number" name="mobile" id="mobile" required>
+
+            <label for="address">ADDRESS: </label>
+            <textarea name="address" id="address" required></textarea>
+
+            <button type="submit">SIGN UP</button>
+        </form>
+    </div>
+
+</body>
+</html>
+
+
+<!--
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -5,7 +48,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     {% load static %}
-    <link rel="stylesheet" href="{% static 'delivery/css/styles.css' %}">
+    {% comment %} <link rel="stylesheet" href="{% static 'delivery/css/styles.css' %}"> {% endcomment %}
+    <link rel="stylesheet" href="{% static 'delivery/css/signup.css' %}">
+
 </head>
 <body>
     <div>
@@ -33,3 +78,5 @@
     </div>
 </body>
 </html>
+
+-->

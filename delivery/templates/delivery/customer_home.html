@@ -4,16 +4,21 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     {% load static %}
-    <link rel="stylesheet" href="{% static 'delivery/css/styles.css' %}">
+    <!-- <link rel="stylesheet" href="{% static 'delivery/css/styles.css' %}"> -->
+    <link rel="stylesheet" href="{% static 'delivery/css/customer_home.css' %}">
+
     <title>Document</title>
 </head>
 <body>
     <nav>
-        <p><a href=""><img src="C:\Users\USER\Pictures\Screenshots\Screenshot 2025-01-23 152435.png" alt="Logo"></a></p>
+        <!-- <p><a href="">Logo</a></p> -->
+        <p><a href="{% url 'customer_home' username %}"><img src="https://is1-ssl.mzstatic.com/image/thumb/Purple122/v4/c4/ab/bb/c4abbbd9-f504-937c-fba1-b6fc639844b2/AppIcon-1x_U007emarketing-0-5-0-85-220.png/460x0w.webp" alt="Logo"></a></p>
+
         <p>Welcome {{ username }}!</p>
-        <p><a href="">Home</a></p>
+        <p><a href="{% url 'customer_home' username %}">Home</a></p>
         <p><a href="{% url 'show_cart_page' username %}">view cart</a></p>
-        <p><a href="">Log out</a></p>
+        <!-- <p><a href="/">Log out</a></p> -->
+        <p><a href="{% url 'logout_view' %}">Log out</a></p>
         <!-- <p>{{ username|default:"No username found" }}</p> -->
     </nav>
     <h1>Customer Home Page</h1>

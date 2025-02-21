@@ -1,0 +1,137 @@
+/* Base Styling */
+body {
+    font-family: 'Helvetica Neue', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f9; /* Light pastel background for a fresh feel */
+    color: #333;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+}
+
+/* Main Container */
+#main-container {
+    width: 90%;
+    max-width: 1200px;
+    background-color: #ffffff;
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+    border-radius: 20px;
+    padding: 3rem;
+    text-align: center;
+    transition: all 0.3s ease-in-out;
+}
+
+/* Header */
+header {
+    margin-bottom: 2rem;
+}
+
+h2 {
+    font-size: 3rem;
+    font-weight: 600;
+    color: #ffb74d; /* Warm yellow-orange to add freshness */
+    margin-bottom: 1rem;
+    letter-spacing: 1.5px;
+}
+
+header p {
+    font-size: 1.2rem;
+    color: #555;
+    line-height: 1.6;
+    margin-top: 0.5rem;
+}
+
+/* Action Buttons (Sign In & Sign Up) */
+#auth-buttons {
+    margin-top: 2rem;
+}
+
+#auth-buttons a {
+    font-size: 1.1rem;
+    padding: 14px 40px;
+    color: #fff;
+    text-decoration: none;
+    border-radius: 30px;
+    margin: 0 12px;
+    display: inline-block;
+    transition: all 0.3s ease;
+}
+
+#auth-buttons .btn-primary {
+    background-color: #ffb74d; /* Soft yellow-orange */
+}
+
+#auth-buttons .btn-primary:hover {
+    background-color: #ff9800; /* Darker yellow-orange on hover */
+    transform: scale(1.05);
+}
+
+#auth-buttons .btn-primary:active {
+    background-color: #f57c00; /* Even darker orange on click */
+}
+
+#auth-buttons .btn-secondary {
+    background-color: #64b5f6; /* Soft pastel blue */
+}
+
+#auth-buttons .btn-secondary:hover {
+    background-color: #42a5f5; /* Darker blue on hover */
+    transform: scale(1.05);
+}
+
+#auth-buttons .btn-secondary:active {
+    background-color: #1e88e5; /* Deeper blue on click */
+}
+
+/* About Section */
+#about {
+    margin-top: 2rem;
+    font-size: 1.1rem;
+    color: #555;
+}
+
+#about p {
+    font-size: 1.3rem;
+    color: #333;
+    line-height: 1.8;
+    margin-top: 1rem;
+}
+
+/* Footer */
+footer {
+    margin-top: 3rem;
+    font-size: 1rem;
+    color: #888;
+}
+
+footer p {
+    margin: 0;
+}
+
+/* Hover Effects */
+#main-container:hover {
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+    transform: translateY(-5px);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    h2 {
+        font-size: 2.4rem;
+    }
+
+    header p {
+        font-size: 1rem;
+    }
+
+    #auth-buttons a {
+        font-size: 1rem;
+        padding: 12px 30px;
+    }
+
+    #about p {
+        font-size: 1.2rem;
+    }
+}

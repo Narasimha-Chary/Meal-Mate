@@ -37,7 +37,12 @@ def handle_login(request):
             return render(request, "delivery/login_fail.html")
     else:
         return HttpResponse("Invalid request")
-    
+###############    
+# def customer_home(request, username, restaurants):
+#     context = {"restaurants": restaurants, "username": username}
+#     return render(request, "delivery/customer_home.html", context)      
+
+###################
 def handle_signup(request):
     if request.method == 'POST':
         username = request.POST.get('username')
@@ -305,3 +310,31 @@ def orders(request, username):
         'cart_items': cart_items,
         'total_price': total_price,
     })
+
+
+#####################################
+
+
+
+
+def customer_home(request, username):
+    # Your logic to handle the customer home page
+    # return render(request, 'customer_home.html')
+    print(username)
+    Customer.objects.get(username=username)
+    if username == 'admin':
+        return render(request, "delivery/login_success.html", {"username": username})
+    else:
+        restaurants = Restaurant.objects.all()
+        context = {"restaurants": restaurants, "username": username}
+        return render(request, "delivery/customer_home.html", context)  
+
+##################          
+
+from django.contrib.auth import logout
+
+def logout_view(request):
+    logout(request)
+    # return ('signin')  # Ensure you replace 'signin' with your login page URL name
+    return redirect('index')
+

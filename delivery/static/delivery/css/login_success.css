@@ -1,0 +1,71 @@
+/* Base Styling */
+body {
+    font-family: 'Helvetica Neue', sans-serif;
+    margin: 0;
+    padding: 0;
+    background: radial-gradient(circle, #fceabb, #f8b500); /* Warm gradient */
+    color: #333;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+/* Navigation Bar */
+nav {
+    background-color: #ff9800; /* Warm orange */
+    padding: 15px;
+    width: 100%;
+    text-align: center;
+    font-size: 1.2rem;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+nav p {
+    color: white;
+    font-weight: bold;
+}
+
+/* Heading */
+h1 {
+    font-size: 2.5rem;
+    margin-top: 1.5rem;
+    color: #d32f2f; /* Red for alert */
+}
+
+/* Links */
+a {
+    font-size: 1.2rem;
+    color: #ff9800;
+    text-decoration: none;
+    padding: 12px 20px;
+    margin: 10px;
+    border-radius: 8px;
+    background-color: white;
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
+}
+
+a:hover {
+    background-color: #ff9800;
+    color: white;
+    transform: scale(1.05);
+}
+
+a:active {
+    background-color: #f57c00;
+    color: white;
+}
+
+/* Responsive Design */
+@media (max-width: 480px) {
+    h1 {
+        font-size: 2rem;
+    }
+
+    a {
+        font-size: 1rem;
+        padding: 8px 15px;
+    }
+}

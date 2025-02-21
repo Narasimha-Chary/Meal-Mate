@@ -1,0 +1,125 @@
+/* Base Styling */
+body {
+    font-family: 'Helvetica Neue', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f9; /* Light pastel background */
+    color: #333;
+    text-align: center;
+}
+
+/* Navigation Bar */
+nav {
+    width: 100%;
+    background-color: #ffb74d; /* Warm yellow-orange */
+    padding: 1rem 0;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+nav p {
+    margin: 0;
+}
+
+nav a {
+    color: white;
+    text-decoration: none;
+    font-size: 1.2rem;
+    font-weight: 600;
+    transition: color 0.3s ease-in-out;
+}
+
+nav a:hover {
+    color: #f57c00; /* Darker orange */
+}
+
+/* Restaurant Details */
+h1, h3 {
+    color: #ff9800;
+}
+
+img {
+    border-radius: 10px;
+    margin: 10px 0;
+    max-width: 100%;
+}
+
+/* Menu Table */
+table {
+    width: 90%;
+    max-width: 900px;
+    margin: 20px auto;
+    border-collapse: collapse;
+    background-color: #ffffff;
+    border-radius: 12px;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+}
+
+thead {
+    background-color: #ffb74d;
+    color: white;
+    font-size: 1.2rem;
+}
+
+th, td {
+    padding: 1rem;
+    text-align: center;
+    border-bottom: 2px solid #ddd;
+}
+
+tbody tr:hover {
+    background-color: rgba(255, 183, 77, 0.2);
+}
+
+/* Menu Item Images */
+td img {
+    border-radius: 10px;
+    width: 80px;
+    height: 80px;
+    object-fit: cover;
+}
+
+/* Add to Cart Button */
+button {
+    background-color: #64b5f6; /* Soft pastel blue */
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    font-size: 1rem;
+    border-radius: 20px;
+    cursor: pointer;
+    transition: all 0.3s ease-in-out;
+}
+
+button:hover {
+    background-color: #42a5f5;
+    transform: scale(1.05);
+}
+
+button:active {
+    background-color: #1e88e5;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    table {
+        font-size: 0.9rem;
+    }
+
+    th, td {
+        padding: 0.8rem;
+    }
+
+    td img {
+        width: 60px;
+        height: 60px;
+    }
+
+    button {
+        font-size: 0.9rem;
+        padding: 8px 16px;
+    }
+}

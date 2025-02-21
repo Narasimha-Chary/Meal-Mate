@@ -1,0 +1,135 @@
+/* Base Styling */
+body {
+    font-family: 'Helvetica Neue', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f9; /* Light pastel background */
+    color: #333;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+}
+
+/* Main Container */
+.container {
+    width: 90%;
+    max-width: 600px;
+    background-color: #ffffff;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+    border-radius: 20px;
+    padding: 2.5rem;
+    text-align: center;
+    transition: all 0.3s ease-in-out;
+}
+
+/* Error Message */
+.error-message {
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: #e53935; /* Red for error message */
+    margin-bottom: 1rem;
+    background-color: rgba(229, 57, 53, 0.1);
+    padding: 10px;
+    border-radius: 10px;
+}
+
+/* Title */
+.title {
+    font-size: 2.5rem;
+    font-weight: 600;
+    color: #ffb74d; /* Warm yellow-orange */
+    margin-bottom: 1rem;
+}
+
+/* Form Styling */
+.form {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+/* Form Group */
+.form-group {
+    text-align: left;
+}
+
+/* Labels */
+.form-group label {
+    font-size: 1.2rem;
+    font-weight: 500;
+    color: #555;
+    display: block;
+    margin-bottom: 0.5rem;
+}
+
+/* Input Fields */
+.input-field {
+    width: 100%;
+    padding: 12px;
+    font-size: 1rem;
+    border: 2px solid #ddd;
+    border-radius: 10px;
+    transition: border-color 0.3s ease-in-out;
+}
+
+/* Input Field Focus */
+.input-field:focus {
+    border-color: #64b5f6; /* Pastel blue */
+    outline: none;
+    box-shadow: 0 0 10px rgba(100, 181, 246, 0.3);
+}
+
+/* Submit Button */
+.submit-btn {
+    font-size: 1.2rem;
+    padding: 14px;
+    background-color: #ffb74d; /* Warm yellow-orange */
+    color: #fff;
+    border: none;
+    border-radius: 30px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+/* Button Hover */
+.submit-btn:hover {
+    background-color: #ff9800; /* Darker orange */
+    transform: scale(1.05);
+}
+
+/* Button Active */
+.submit-btn:active {
+    background-color: #f57c00; /* Even darker orange */
+}
+
+/* Form Hover Effect */
+.container:hover {
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
+    transform: translateY(-5px);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .title {
+        font-size: 2rem;
+    }
+
+    .error-message {
+        font-size: 1.3rem;
+    }
+
+    .form-group label {
+        font-size: 1rem;
+    }
+
+    .input-field {
+        font-size: 0.95rem;
+        padding: 10px;
+    }
+
+    .submit-btn {
+        font-size: 1rem;
+        padding: 12px;
+    }
+}

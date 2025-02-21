@@ -1,0 +1,74 @@
+/* Base Styling */
+body {
+    font-family: 'Helvetica Neue', sans-serif;
+    background: radial-gradient(circle, #fceabb, #f8b500); /* Warm gradient */
+    color: #333;
+    text-align: center;
+    padding: 20px;
+}
+
+/* Heading Styling */
+h1 {
+    font-size: 2rem;
+    color: #d32f2f; /* Red for emphasis */
+}
+
+h2 {
+    font-size: 1.8rem;
+    color: #ff9800; /* Orange for a vibrant feel */
+}
+
+h3 {
+    font-size: 1.5rem;
+    margin-top: 1rem;
+}
+
+/* Address Section */
+p {
+    font-size: 1.2rem;
+    line-height: 1.5;
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+    color: #333;
+}
+
+/* Link Styling */
+a {
+    font-size: 1rem;
+    color: #ff9800;
+    text-decoration: none;
+    padding: 10px 15px;
+    border-radius: 8px;
+    background-color: white;
+    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
+    display: inline-block;
+    margin-top: 20px;
+}
+
+a:hover {
+    background-color: #ff9800;
+    color: white;
+    transform: scale(1.05);
+}
+
+a:active {
+    background-color: #f57c00;
+    color: white;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    h1, h2 {
+        font-size: 1.5rem;
+    }
+
+    p {
+        font-size: 1rem;
+    }
+
+    a {
+        font-size: 0.9rem;
+        padding: 8px 12px;
+    }
+}

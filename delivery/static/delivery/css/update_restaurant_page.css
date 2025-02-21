@@ -1,0 +1,83 @@
+/* Base Styling */
+body {
+    font-family: 'Helvetica Neue', sans-serif;
+    background: radial-gradient(circle, #fceabb, #f8b500); /* Warm gradient */
+    color: #333;
+    padding: 20px;
+    text-align: center;
+}
+
+/* Title */
+h2 {
+    color: #333;
+    font-size: 2rem;
+    margin-bottom: 20px;
+}
+
+/* Form Styling */
+form {
+    background-color: #ffffff;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    max-width: 500px;
+    margin: 0 auto;
+}
+
+label {
+    font-size: 1rem;
+    color: #555;
+    display: block;
+    margin-bottom: 5px;
+}
+
+input {
+    width: 100%;
+    padding: 12px;
+    margin: 8px 0;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    font-size: 1rem;
+}
+
+input:focus {
+    border-color: #ff9800; /* Orange color on focus */
+    outline: none;
+}
+
+/* Button Styling */
+button {
+    font-size: 1rem;
+    padding: 12px 20px;
+    background-color: #ff9800; /* Orange for button */
+    color: white;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+button:hover {
+    background-color: #f57c00; /* Darker orange on hover */
+}
+
+button:active {
+    background-color: #f57c00;
+    transform: scale(0.98);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    h2 {
+        font-size: 1.5rem;
+    }
+
+    form {
+        padding: 20px;
+    }
+
+    input, button {
+        font-size: 0.9rem;
+    }
+}

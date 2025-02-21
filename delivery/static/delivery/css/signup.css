@@ -1,0 +1,111 @@
+/* Base Styling */
+body {
+    font-family: 'Helvetica Neue', sans-serif;
+    margin: 0;
+    padding: 0;
+    background: radial-gradient(circle, #f4f4f9, #ffffff); /* Subtle radial gradient */
+    color: #333;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+}
+
+/* Main Form Container */
+div {
+    width: 90%;
+    max-width: 600px;
+    background-color: #ffffff;
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+    border-radius: 20px;
+    padding: 3rem;
+    text-align: center;
+    transition: all 0.3s ease-in-out;
+}
+
+/* Form Labels */
+label {
+    font-size: 1.1rem;
+    color: #555;
+    text-align: left;
+    display: block;
+    margin-bottom: 0.5rem;
+}
+
+/* Form Inputs */
+input[type="text"],
+input[type="password"],
+input[type="email"],
+input[type="number"],
+textarea {
+    width: 100%;
+    padding: 12px;
+    font-size: 1rem;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    margin-top: 0.5rem;
+    background-color: #f4f4f9;
+    margin-bottom: 1.5rem;
+}
+
+textarea {
+    resize: vertical;
+    height: 120px;
+}
+
+/* Submit Button */
+button[type="submit"] {
+    width: 100%;
+    padding: 14px;
+    font-size: 1.1rem;
+    color: #fff;
+    background-color: #ffb74d; /* Warm yellow-orange */
+    border: none;
+    border-radius: 30px;
+    transition: all 0.3s ease;
+    cursor: pointer;
+}
+
+button[type="submit"]:hover {
+    background-color: #ff9800; /* Darker yellow-orange on hover */
+    transform: scale(1.05);
+}
+
+button[type="submit"]:active {
+    background-color: #f57c00; /* Even darker orange on click */
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    div {
+        padding: 2rem;
+    }
+
+    label {
+        font-size: 1rem;
+    }
+
+    input[type="text"],
+    input[type="password"],
+    input[type="email"],
+    input[type="number"],
+    textarea {
+        font-size: 0.9rem;
+        padding: 10px;
+    }
+
+    button[type="submit"] {
+        font-size: 1rem;
+        padding: 12px;
+    }
+}
+
+/* Title Styling */
+h2.title {
+    font-size: 2.5rem;
+    font-weight: 600;
+    color: #ffb74d; /* Warm yellow-orange */
+    margin-bottom: 2rem;
+    text-align: center;
+    letter-spacing: 1.2px;
+}
